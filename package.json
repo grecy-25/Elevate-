@@ -1,17 +1,21 @@
 {
-  "name": "globetrotter-workspace",
+  "name": "globetrotter-backend",
   "version": "1.0.0",
   "private": true,
-  "description": "GlobeTrotter Full-Stack Travel Planning Platform",
+  "description": "GlobeTrotter REST API and Relational Database Server",
+  "main": "src/server.js",
+  "type": "module",
   "scripts": {
-    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
-    "dev:backend": "cd backend && npm run dev",
-    "dev:frontend": "cd frontend && npm run dev",
-    "dev": "concurrently --kill-others-on-fail -n \"BACKEND,FRONTEND\" -c \"blue,magenta\" \"npm run dev:backend\" \"npm run dev:frontend\"",
-    "start": "npm run dev",
-    "seed": "cd backend && npm run seed"
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "seed": "node src/seed/seedData.js"
   },
-  "devDependencies": {
-    "concurrently": "^8.2.2"
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "sql.js": "^1.12.0"
   }
 }
